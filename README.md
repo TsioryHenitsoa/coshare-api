@@ -1,181 +1,159 @@
-﻿# 📦 Backend Kit — Modular NestJS Architecture
+﻿# Backend Kit
 
-## 🚀 Overview
+A modular, scalable NestJS architecture designed as a reusable backend foundation.
 
-This project is a modular NestJS backend kit designed as a reusable and scalable architecture base.
-
-It is not a simple application — it is a **backend foundation** that can be reused across multiple projects, structured like an internal framework.
-
-The goal is to build a clean, maintainable, and production-ready backend architecture using modular design principles.
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
-## 🧠 Architecture Philosophy
+## Overview
+
+Backend Kit is not a simple application — it is a **backend foundation** built to be reused across multiple projects, structured like an internal framework.
+
+The goal is to provide a clean, maintainable, and production-ready architecture using modular design principles, so that starting a new backend project never means starting from scratch.
+
+---
+
+## Architecture
 
 This project follows a combination of:
 
-- 🧩 **Modular Monolith Architecture**
-- 🏗️ **Clean Architecture** principles
-- 🔌 **Kit-based** reusable modules design
+- **Modular Monolith Architecture** — features are isolated into independent modules
+- **Clean Architecture principles** — clear separation of concerns across layers
+- **Kit-based design** — every module is built to be extractable and reusable
 
-> **Key idea:** Each module must be independent, reusable, and easily extractable into other projects.
+> Each module must be independent, self-contained, and easily portable to other projects.
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 src/
-  core/         # Core system (framework-like logic)
-  modules/      # Business & feature modules
-  shared/       # Global utilities (decorators, pipes, utils)
-  config/       # App configuration
-  database/     # Database setup & abstraction layer
+├── core/         # Framework-like logic (auth, logging, error handling)
+├── modules/      # Feature modules (users, auth, notifications...)
+├── shared/       # Global utilities (decorators, pipes, helpers, constants)
+├── config/       # Application configuration
+└── database/     # Database setup and abstraction layer
 ```
 
 ---
 
-## ⚙️ Core Concepts
+## Core Concepts
 
-### 🔷 Core Layer
+### Core Layer
 
-Contains reusable backend logic:
+Contains reusable, cross-cutting backend logic:
 
-- authentication system *(future)*
-- base services
-- global error handling
-- logging system *(future)*
+- Base services and abstractions
+- Global exception handling
+- Authentication system *(planned)*
+- Logging system *(planned)*
 
-### 🟩 Modules Layer
+### Modules Layer
 
-Feature-based modules:
+Business feature modules, each independently structured:
 
-- `users`
-- `auth`
-- `notifications`
-- `payments` *(future)*
+| Module          | Status    |
+|-----------------|-----------|
+| `users`         | Planned   |
+| `auth`          | Planned   |
+| `notifications` | Planned   |
+| `payments`      | Future    |
 
-Each module is:
+### Shared Layer
 
-- self-contained
-- independent
-- reusable
+Stateless, business-logic-free utilities shared across modules:
 
-### 🟨 Shared Layer
-
-Global utilities:
-
-- decorators
-- pipes
-- helpers
-- constants
+- Custom decorators
+- Validation pipes
+- Helper functions
+- Global constants
 
 ---
 
-## 🧪 Design Rules
+## Design Rules
 
-- ✔ Modules must be independent
-- ✔ Core must not depend on modules
-- ✔ Shared must contain no business logic
-- ✔ Every module must be extractable
-- ✔ Dependency Injection is used everywhere
-
----
-
-## 🚀 Getting Started
-
-### 1. Install dependencies
-
-```bash
-npm install
-```
-
-or
-
-```bash
-npm install
-```
-
-### 2. Run the project
-
-```bash
-npm run start:dev
-```
-
-### 3. Build
-
-```bash
-npm run build
-```
+| Rule | Description |
+|------|-------------|
+| Module independence | Modules must not directly depend on each other |
+| Core isolation | Core must not import from feature modules |
+| Shared purity | Shared must contain no business logic |
+| Portability | Every module must be extractable into another project |
+| DI everywhere | Dependency Injection is used throughout the codebase |
 
 ---
 
-## 🐳 Docker (Optional)
+## Getting Started
 
-Docker is not required to run the project locally, but it is recommended for future production setups.
+### Prerequisites
 
-**Planned support:**
+- Node.js >= 18
+- pnpm (recommended) or npm
+
+### Installation
+
+```bash
+pnpm install
+```
+
+### Running in development
+
+```bash
+pnpm run start:dev
+```
+
+### Build for production
+
+```bash
+pnpm run build
+pnpm run start:prod
+```
+
+---
+
+## Docker
+
+Docker is not required for local development but is recommended for production environments.
+
+Planned Docker support:
 
 - PostgreSQL container
 - Redis container
-- API containerization
-
-**Future usage:**
+- API containerization via multi-stage Dockerfile
 
 ```bash
+# Future usage
 docker-compose up -d
 ```
 
 ---
 
-## 🎯 Project Goal
-
-This project aims to become:
-
-- a personal backend starter kit
-- a reusable NestJS architecture base
-- a portfolio-grade backend system
-- a foundation for multiple SaaS or freelance projects
-
----
-
-## 🧱 Roadmap
+## Roadmap
 
 - [x] Core architecture setup
-- [ ] Auth module (JWT + refresh tokens)
+- [ ] Auth module — JWT + refresh token strategy
 - [ ] Users module
-- [ ] Database integration (PostgreSQL + Prisma/TypeORM)
-- [ ] Logging system
-- [ ] Docker full setup
-- [ ] Event-driven communication system
+- [ ] Database integration — PostgreSQL with Prisma or TypeORM
+- [ ] Structured logging system
+- [ ] Full Docker setup
+- [ ] Event-driven communication layer
 
 ---
 
-## 💡 Why this project?
+## Motivation
 
-Instead of rebuilding backend structure for every project, this kit allows:
+Instead of rebuilding backend structure for every new project, Backend Kit provides:
 
-- 👉 faster development
-- 👉 consistent architecture
-- 👉 production-ready structure by default
-- 👉 better scalability for freelance projects
-
----
-
-## 👨‍💻 Author
-
-Built as a personal backend engineering kit for:
-
-- reusable NestJS architecture
-- freelance projects
-- scalable backend systems
+- A consistent, opinionated architecture out of the box
+- Faster project bootstrapping
+- Production-ready patterns by default
+- A scalable foundation for SaaS and freelance projects
 
 ---
 
-## 🔥 Final note
+## License
 
-> This is not just a project.
->
-> It is a **backend foundation system** designed to evolve into a personal framework.
-
-Thank you
+[MIT](LICENSE)
