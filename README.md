@@ -91,25 +91,25 @@ Stateless, business-logic-free utilities shared across modules:
 ### Prerequisites
 
 - Node.js >= 18
-- pnpm (recommended) or npm
+- npm or pnpm
 
 ### Installation
 
 ```bash
-pnpm install
+npm install
 ```
 
 ### Running in development
 
 ```bash
-pnpm run start:dev
+npm run start:dev
 ```
 
 ### Build for production
 
 ```bash
-pnpm run build
-pnpm run start:prod
+npm run build
+npm run start:prod
 ```
 
 ---
@@ -157,3 +157,4 @@ Instead of rebuilding backend structure for every new project, Backend Kit provi
 ## License
 
 [MIT](LICENSE)
+
