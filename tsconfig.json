@@ -19,6 +19,7 @@
       "@/*": ["src/*"],
       "@expense/*": ["src/modules/expense/*"],
       "@membership/*": ["src/modules/membership/*"],
+      "@household/*": ["src/modules/household/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
