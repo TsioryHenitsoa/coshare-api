@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@expense/*": ["src/modules/expense/*"]
+      "@expense/*": ["src/modules/expense/*"],
+      "@membership/*": ["src/modules/membership/*"],
     },
     "incremental": true,
     "skipLibCheck": true,

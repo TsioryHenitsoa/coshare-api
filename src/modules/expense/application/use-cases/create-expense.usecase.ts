@@ -4,6 +4,7 @@ import { CategoryRulesService } from '@expense/domain/services/category-rules.se
 import { ExpenseConsistencyService } from '@expense/domain/services/expense-consistency.service';
 import { CreateExpenseInput } from '@expense/application/contracts/create-expense.input';
 import { ExpenseFactory } from '@expense/domain/factories/expense.factory';
+import { MembershipValidationService } from '@membership/domain/services/membership-validation.service';
 
 export class CreateExpenseUseCase {
   constructor(
@@ -11,9 +12,18 @@ export class CreateExpenseUseCase {
     private readonly ruleProvider: CategoryRuleProvider,
     private readonly rulesService: CategoryRulesService,
     private readonly validator: ExpenseConsistencyService,
-  ) {}
+    private readonly membershipValidator: MembershipValidationService
+  ) { }
 
   async execute(input: CreateExpenseInput) {
+
+    await this.membershipValidator.assertUsersBelongToHousehold(
+      [
+        ...input.participants.map(p => p.userId),
+        ...input.payments.map(p => p.userId),
+      ],
+      input.householdId,
+    );
 
     const rule = this.ruleProvider.getRule(input.householdId, input.categoryId);
 
